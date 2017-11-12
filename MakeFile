@@ -1,0 +1,11 @@
+CC = gcc
+CFLAGS = -g -Wall -ansi -pedantic
+
+all:	rpnCalculator stack 
+
+rpnCalculator: stack.o rpnCalculator.o
+	$(CC)  -o $@ $^  
+	
+%.o:	 %.c $(INCL)
+	$(CC) $(CFLAGS) -c -o $@ $< 
+
